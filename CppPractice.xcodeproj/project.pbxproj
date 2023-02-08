@@ -7,16 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DBCF56222994444100536B7C /* CppPractice.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DBCF56212994444100536B7C /* CppPractice.hpp */; };
-		DBCF56242994444100536B7C /* CppPracticePriv.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DBCF56232994444100536B7C /* CppPracticePriv.hpp */; };
-		DBCF56262994444100536B7C /* CppPractice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56252994444100536B7C /* CppPractice.cpp */; };
+		DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */ = {isa = PBXBuildFile; fileRef = DBCF56212994444100536B7C /* TriangleSorted.hpp */; };
+		DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56252994444100536B7C /* TriangleSorted.cpp */; };
+		DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56322994446F00536B7C /* TriangleSortedTests.mm */; };
+		DBCF56342994446F00536B7C /* libCppPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCF561E2994444100536B7C /* libCppPractice.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBCF56352994446F00536B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBCF56162994444100536B7C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBCF561D2994444100536B7C;
+			remoteInfo = CppPractice;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DBCF561E2994444100536B7C /* libCppPractice.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCppPractice.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBCF56212994444100536B7C /* CppPractice.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CppPractice.hpp; sourceTree = "<group>"; };
-		DBCF56232994444100536B7C /* CppPracticePriv.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CppPracticePriv.hpp; sourceTree = "<group>"; };
-		DBCF56252994444100536B7C /* CppPractice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CppPractice.cpp; sourceTree = "<group>"; };
+		DBCF56212994444100536B7C /* TriangleSorted.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TriangleSorted.hpp; sourceTree = "<group>"; };
+		DBCF56252994444100536B7C /* TriangleSorted.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TriangleSorted.cpp; sourceTree = "<group>"; };
+		DBCF56302994446F00536B7C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBCF56322994446F00536B7C /* TriangleSortedTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TriangleSortedTests.mm; sourceTree = "<group>"; };
+		DBCF563A29944D7800536B7C /* TestUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestUtils.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +40,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBCF562D2994446F00536B7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBCF56342994446F00536B7C /* libCppPractice.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -34,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCF56202994444100536B7C /* CppPractice */,
+				DBCF56312994446F00536B7C /* Tests */,
 				DBCF561F2994444100536B7C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				DBCF561E2994444100536B7C /* libCppPractice.a */,
+				DBCF56302994446F00536B7C /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -49,11 +72,19 @@
 		DBCF56202994444100536B7C /* CppPractice */ = {
 			isa = PBXGroup;
 			children = (
-				DBCF56212994444100536B7C /* CppPractice.hpp */,
-				DBCF56232994444100536B7C /* CppPracticePriv.hpp */,
-				DBCF56252994444100536B7C /* CppPractice.cpp */,
+				DBCF56212994444100536B7C /* TriangleSorted.hpp */,
+				DBCF56252994444100536B7C /* TriangleSorted.cpp */,
 			);
 			path = CppPractice;
+			sourceTree = "<group>";
+		};
+		DBCF56312994446F00536B7C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF563A29944D7800536B7C /* TestUtils.hpp */,
+				DBCF56322994446F00536B7C /* TriangleSortedTests.mm */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -63,8 +94,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBCF56242994444100536B7C /* CppPracticePriv.hpp in Headers */,
-				DBCF56222994444100536B7C /* CppPractice.hpp in Headers */,
+				DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +118,24 @@
 			productReference = DBCF561E2994444100536B7C /* libCppPractice.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		DBCF562F2994446F00536B7C /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBCF56372994446F00536B7C /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				DBCF562C2994446F00536B7C /* Sources */,
+				DBCF562D2994446F00536B7C /* Frameworks */,
+				DBCF562E2994446F00536B7C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBCF56362994446F00536B7C /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = DBCF56302994446F00536B7C /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,6 +146,9 @@
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					DBCF561D2994444100536B7C = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					DBCF562F2994446F00536B7C = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
@@ -116,20 +167,47 @@
 			projectRoot = "";
 			targets = (
 				DBCF561D2994444100536B7C /* CppPractice */,
+				DBCF562F2994446F00536B7C /* Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBCF562E2994446F00536B7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBCF561B2994444100536B7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBCF56262994444100536B7C /* CppPractice.cpp in Sources */,
+				DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBCF562C2994446F00536B7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBCF56362994446F00536B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBCF561D2994444100536B7C /* CppPractice */;
+			targetProxy = DBCF56352994446F00536B7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DBCF56272994444100536B7C /* Debug */ = {
@@ -267,6 +345,34 @@
 			};
 			name = Release;
 		};
+		DBCF56382994446F00536B7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 25Q42646VD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catinabox.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Debug;
+		};
+		DBCF56392994446F00536B7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 25Q42646VD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.catinabox.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -284,6 +390,15 @@
 			buildConfigurations = (
 				DBCF562A2994444100536B7C /* Debug */,
 				DBCF562B2994444100536B7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBCF56372994446F00536B7C /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBCF56382994446F00536B7C /* Debug */,
+				DBCF56392994446F00536B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
