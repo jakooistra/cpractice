@@ -9,7 +9,6 @@
 #define Heap_h
 
 #include <stdbool.h>
-#include <stdio.h>
 
 /* The functions below are exported */
 #pragma GCC visibility push(default)
