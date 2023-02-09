@@ -14,6 +14,9 @@
 		DBCF563D299472AF00536B7C /* TriangleSortedC.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF563B299472AF00536B7C /* TriangleSortedC.h */; };
 		DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF563C299472AF00536B7C /* TriangleSortedC.c */; };
 		DBCF5640299472D800536B7C /* TriangleSortedCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF563F299472D800536B7C /* TriangleSortedCTests.m */; };
+		DBCF56442994866F00536B7C /* Heap.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF56422994866F00536B7C /* Heap.h */; };
+		DBCF56452994866F00536B7C /* Heap.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56432994866F00536B7C /* Heap.c */; };
+		DBCF5647299488E400536B7C /* HeapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF5646299488E400536B7C /* HeapTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		DBCF563C299472AF00536B7C /* TriangleSortedC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TriangleSortedC.c; sourceTree = "<group>"; };
 		DBCF563F299472D800536B7C /* TriangleSortedCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleSortedCTests.m; sourceTree = "<group>"; };
 		DBCF56412994733700536B7C /* TestUtilsC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUtilsC.h; sourceTree = "<group>"; };
+		DBCF56422994866F00536B7C /* Heap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Heap.h; sourceTree = "<group>"; };
+		DBCF56432994866F00536B7C /* Heap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Heap.c; sourceTree = "<group>"; };
+		DBCF5646299488E400536B7C /* HeapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeapTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,8 @@
 		DBCF56202994444100536B7C /* CppPractice */ = {
 			isa = PBXGroup;
 			children = (
+				DBCF56422994866F00536B7C /* Heap.h */,
+				DBCF56432994866F00536B7C /* Heap.c */,
 				DBCF56212994444100536B7C /* TriangleSorted.hpp */,
 				DBCF56252994444100536B7C /* TriangleSorted.cpp */,
 				DBCF563B299472AF00536B7C /* TriangleSortedC.h */,
@@ -90,6 +98,7 @@
 		DBCF56312994446F00536B7C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DBCF5646299488E400536B7C /* HeapTests.m */,
 				DBCF563A29944D7800536B7C /* TestUtils.hpp */,
 				DBCF56412994733700536B7C /* TestUtilsC.h */,
 				DBCF56322994446F00536B7C /* TriangleSortedTests.mm */,
@@ -105,6 +114,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF56442994866F00536B7C /* Heap.h in Headers */,
 				DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */,
 				DBCF563D299472AF00536B7C /* TriangleSortedC.h in Headers */,
 			);
@@ -201,6 +211,7 @@
 			files = (
 				DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */,
 				DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */,
+				DBCF56452994866F00536B7C /* Heap.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCF5640299472D800536B7C /* TriangleSortedCTests.m in Sources */,
+				DBCF5647299488E400536B7C /* HeapTests.m in Sources */,
 				DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

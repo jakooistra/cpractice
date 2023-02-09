@@ -1,6 +1,6 @@
 //
 //  TriangleSortedTests.mm
-//  TriangleSortedTests
+//  Tests
 //
 //  Created by John Kooistra on 2023-02-08.
 //

@@ -1,6 +1,6 @@
 //
 //  TriangleSortedCTests.m
-//  TriangleSortedCTests
+//  Tests
 //
 //  Created by John Kooistra on 2023-02-08.
 //

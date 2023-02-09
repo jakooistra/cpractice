@@ -8,7 +8,7 @@
 #ifndef TriangleSortedC_h
 #define TriangleSortedC_h
 
-/* The classes below are exported */
+/* The functions below are exported */
 #pragma GCC visibility push(default)
 
 /*
