@@ -11,6 +11,9 @@
 		DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56252994444100536B7C /* TriangleSorted.cpp */; };
 		DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56322994446F00536B7C /* TriangleSortedTests.mm */; };
 		DBCF56342994446F00536B7C /* libCppPractice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCF561E2994444100536B7C /* libCppPractice.a */; };
+		DBCF563D299472AF00536B7C /* TriangleSortedC.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF563B299472AF00536B7C /* TriangleSortedC.h */; };
+		DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF563C299472AF00536B7C /* TriangleSortedC.c */; };
+		DBCF5640299472D800536B7C /* TriangleSortedCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF563F299472D800536B7C /* TriangleSortedCTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,10 @@
 		DBCF56302994446F00536B7C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCF56322994446F00536B7C /* TriangleSortedTests.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TriangleSortedTests.mm; sourceTree = "<group>"; };
 		DBCF563A29944D7800536B7C /* TestUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TestUtils.hpp; sourceTree = "<group>"; };
+		DBCF563B299472AF00536B7C /* TriangleSortedC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleSortedC.h; sourceTree = "<group>"; };
+		DBCF563C299472AF00536B7C /* TriangleSortedC.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TriangleSortedC.c; sourceTree = "<group>"; };
+		DBCF563F299472D800536B7C /* TriangleSortedCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleSortedCTests.m; sourceTree = "<group>"; };
+		DBCF56412994733700536B7C /* TestUtilsC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUtilsC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +81,8 @@
 			children = (
 				DBCF56212994444100536B7C /* TriangleSorted.hpp */,
 				DBCF56252994444100536B7C /* TriangleSorted.cpp */,
+				DBCF563B299472AF00536B7C /* TriangleSortedC.h */,
+				DBCF563C299472AF00536B7C /* TriangleSortedC.c */,
 			);
 			path = CppPractice;
 			sourceTree = "<group>";
@@ -82,7 +91,9 @@
 			isa = PBXGroup;
 			children = (
 				DBCF563A29944D7800536B7C /* TestUtils.hpp */,
+				DBCF56412994733700536B7C /* TestUtilsC.h */,
 				DBCF56322994446F00536B7C /* TriangleSortedTests.mm */,
+				DBCF563F299472D800536B7C /* TriangleSortedCTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -95,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */,
+				DBCF563D299472AF00536B7C /* TriangleSortedC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */,
 				DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF5640299472D800536B7C /* TriangleSortedCTests.m in Sources */,
 				DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,6 @@
 //
-//  Tests.m
-//  Tests
+//  TriangleSortedTests.mm
+//  TriangleSortedTests
 //
 //  Created by John Kooistra on 2023-02-08.
 //
@@ -10,11 +10,11 @@
 #import "TestUtils.hpp"
 #import "TriangleSorted.hpp"
 
-@interface Tests : XCTestCase
+@interface TriangleSortedTests : XCTestCase
 
 @end
 
-@implementation Tests
+@implementation TriangleSortedTests
 
 - (void)testSimple {
     std::vector<int> input = { 0, 1, 4, 3, 2 };

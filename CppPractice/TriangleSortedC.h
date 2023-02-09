@@ -1,15 +1,12 @@
 //
-//  TriangleSorted.hpp
-//  TriangleSorted
+//  TriangleSortedC.h
+//  CppPractice
 //
 //  Created by John Kooistra on 2023-02-08.
 //
 
-#ifndef TriangleSorted_
-#define TriangleSorted_
-
-#include <optional>
-#include <vector>
+#ifndef TriangleSortedC_h
+#define TriangleSortedC_h
 
 /* The classes below are exported */
 #pragma GCC visibility push(default)
@@ -18,9 +15,10 @@
  * Returns the largest integer in the given array of values.
  * Assumes that the values are triangle-sorted in increasing-then-decreasing order.
  *
- * Returns std::nullopt if the length passed in is <= 0.
+ * Returns INT_MIN if the length passed in is <= 0.
  */
-std::optional<int> getLargestIntTriangleSorted(std::vector<int> const &values);
+int getLargestIntTriangleSorted(int const *values, int length);
 
 #pragma GCC visibility pop
-#endif // TriangleSorted_
+
+#endif /* TriangleSortedC_h */
