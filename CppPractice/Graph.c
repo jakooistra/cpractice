@@ -11,73 +11,95 @@
 #include <assert.h>
 
 #include "Graph.h"
-
-struct GraphNode {
-    int edgeCount;
-    int *edges;
-};
+#include "IntArray.h"
 
 struct GraphImplementation {
     int nodeCount;
-    struct GraphNode *nodes;
-    int edgePoolSize;
-    int edgePoolCount;
-    int *edgePool;
+    IntArrayHandle *nodes;
 };
 
-GraphHandle graphCreate(int nodeCount, int maxEdges) {
+GraphHandle graphCreate(int nodeCount) {
     GraphHandle graph = malloc(sizeof(struct GraphImplementation));
     graph->nodeCount = nodeCount;
     
-    int nodeByteCount = nodeCount * sizeof(struct GraphNode);
+    int nodeByteCount = nodeCount * sizeof(IntArrayHandle);
     graph->nodes = malloc(nodeByteCount);
     memset(graph->nodes, 0, nodeByteCount);
-    
-    graph->edgePoolSize = maxEdges;
-    graph->edgePoolCount = 0;
-    graph->edgePool = malloc(maxEdges * sizeof(int));
     
     return graph;
 }
 
 void graphRelease(GraphHandle graph) {
+    for (int i = 0; i < graph->nodeCount; ++i) {
+        IntArrayHandle array = graph->nodes[i];
+        if (array != NULL) {
+            arrayRelease(array);
+        }
+    }
     free(graph->nodes);
-    free(graph->edgePool);
     free(graph);
 }
 
-void graphSetNode(GraphHandle graph, int index, int edgeCount, ...) {
+void graphAddNodeEdges(GraphHandle graph, int index, int edgeCount, ...) {
     assert(index < graph->nodeCount);
     assert(index >= 0);
     
-    struct GraphNode *node = &graph->nodes[index];
-    assert(node->edges == NULL);
-    
-    // Allocate the edges from the graph's pool.
-    assert(graph->edgePoolCount + edgeCount <= graph->edgePoolSize);
-    node->edges = &graph->edgePool[graph->edgePoolCount];
-    node->edgeCount = edgeCount;
-    graph->edgePoolCount += edgeCount;
+    IntArrayHandle node = graph->nodes[index];
+    if (node == NULL) {
+        node = arrayCreate(edgeCount);
+        graph->nodes[index] = node;
+    } else {
+        arrayReserveSize(node, edgeCount + arrayCount(node));
+    }
     
     // Set the values of all directed edge connections.
     va_list edges;
     va_start(edges, edgeCount);
     for (int i = 0; i < edgeCount; i++) {
-        node->edges[i] = va_arg(edges, int);
+        graphAddNodeEdge(graph, index, va_arg(edges, int));
     }
     va_end(edges);
 }
 
+void graphAddNodeEdge(GraphHandle graph, int fromIndex, int toIndex) {
+    assert(fromIndex < graph->nodeCount);
+    assert(fromIndex >= 0);
+    assert(toIndex < graph->nodeCount);
+    assert(toIndex >= 0);
+    
+    IntArrayHandle node = graph->nodes[fromIndex];
+    if (node == NULL) {
+        node = arrayCreate(4);
+        graph->nodes[fromIndex] = node;
+    }
+    arrayPush(node, toIndex);
+}
+
+void graphClearNodeEdges(GraphHandle graph, int index) {
+    assert(index < graph->nodeCount);
+    assert(index >= 0);
+    
+    if (graph->nodes[index] != NULL) {
+        arrayRelease(graph->nodes[index]);
+        graph->nodes[index] = NULL;
+    }
+}
+
+void graphConnectNodes(GraphHandle graph, int index0, int index1) {
+    graphAddNodeEdge(graph, index0, index1);
+    graphAddNodeEdge(graph, index1, index0);
+}
+
 int graphNodeEdgeCount(GraphHandle graph, int nodeIndex) {
-    return graph->nodes[nodeIndex].edgeCount;
+    IntArrayHandle node = graph->nodes[nodeIndex];
+    return node == NULL ? 0 : arrayCount(node);
 }
 
 int *graphNodeEdges(GraphHandle graph, int nodeIndex) {
-    return graph->nodes[nodeIndex].edges;
+    IntArrayHandle node = graph->nodes[nodeIndex];
+    return node == NULL ? 0 : arrayValues(node);
 }
 
 int graphNodeCount(GraphHandle graph) {
     return graph->nodeCount;
 }
-
-

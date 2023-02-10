@@ -47,11 +47,7 @@ void arrayRelease(IntArrayHandle array) {
 
 void arrayPush(IntArrayHandle array, int value) {
     if (array->count >= array->size) {
-        array->size *= 2;
-        int *newValues = malloc(array->size * sizeof(int));
-        memcpy(newValues, array->values, array->count * sizeof(int));
-        free(array->values);
-        array->values = newValues;
+        arrayReserveSize(array, array->size * 2);
     }
     
     array->values[array->count++] = value;
@@ -87,12 +83,26 @@ int arrayValue(IntArrayHandle array, int index) {
     return array->values[index];
 }
 
+int *arrayValues(IntArrayHandle array) {
+    return array->values;
+}
+
 int arrayCount(IntArrayHandle array) {
     return array->count;
 }
 
 bool arrayEmpty(IntArrayHandle array) {
     return array->count == 0;
+}
+
+void arrayReserveSize(IntArrayHandle array, int newSize) {
+    if (newSize > array->size) {
+        array->size = newSize;
+        int *newValues = malloc(array->size * sizeof(int));
+        memcpy(newValues, array->values, array->count * sizeof(int));
+        free(array->values);
+        array->values = newValues;
+    }
 }
 
 int arrayAllocatedSize(IntArrayHandle array) {

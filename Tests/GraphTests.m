@@ -26,11 +26,11 @@ static NSArray<NSNumber *> *nsGraphEdges(GraphHandle graph, int nodeIndex) {
 @implementation GraphTests
 
 - (void)testCreation {
-    GraphHandle graph = graphCreate(4, 32);
-    graphSetNode(graph, 0, 3, 1, 2, 3);
-    graphSetNode(graph, 1, 3, 0, 2, 3);
-    graphSetNode(graph, 2, 3, 1, 0, 3);
-    graphSetNode(graph, 3, 3, 1, 2, 0);
+    GraphHandle graph = graphCreate(4);
+    graphAddNodeEdges(graph, 0, 3, 1, 2, 3);
+    graphAddNodeEdges(graph, 1, 3, 0, 2, 3);
+    graphAddNodeEdges(graph, 2, 3, 1, 0, 3);
+    graphAddNodeEdges(graph, 3, 3, 1, 2, 0);
     XCTAssertEqual(4, graphNodeCount(graph));
     XCTAssertEqual(3, graphNodeEdgeCount(graph, 0));
     XCTAssertEqual(3, graphNodeEdgeCount(graph, 1));
@@ -40,11 +40,11 @@ static NSArray<NSNumber *> *nsGraphEdges(GraphHandle graph, int nodeIndex) {
 }
 
 - (void)testEdgeIndexRetrieval {
-    GraphHandle graph = graphCreate(4, 32);
-    graphSetNode(graph, 0, 3, 1, 2, 3);
-    graphSetNode(graph, 1, 3, 0, 2, 3);
-    graphSetNode(graph, 2, 3, 1, 0, 3);
-    graphSetNode(graph, 3, 3, 1, 2, 0);
+    GraphHandle graph = graphCreate(4);
+    graphAddNodeEdges(graph, 0, 3, 1, 2, 3);
+    graphAddNodeEdges(graph, 1, 3, 0, 2, 3);
+    graphAddNodeEdges(graph, 2, 3, 1, 0, 3);
+    graphAddNodeEdges(graph, 3, 3, 1, 2, 0);
     NSArray<NSNumber *> *expected0 = @[@1, @2, @3];
     NSArray<NSNumber *> *expected1 = @[@0, @2, @3];
     NSArray<NSNumber *> *expected2 = @[@1, @0, @3];

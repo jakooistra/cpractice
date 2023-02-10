@@ -13,11 +13,18 @@
 
 typedef struct GraphImplementation *GraphHandle;
 
-GraphHandle graphCreate(int nodeCount, int maxEdges);
+GraphHandle graphCreate(int nodeCount);
 void graphRelease(GraphHandle graph);
 
-// Sets a node's directed edges. Can only be used once.
-void graphSetNode(GraphHandle graph, int index, int edgeCount, ...);
+// Adds to a node's directed edges.
+void graphAddNodeEdges(GraphHandle graph, int index, int edgeCount, ...);
+void graphAddNodeEdge(GraphHandle graph, int fromIndex, int toIndex);
+
+// Removes a node's directed edges.
+void graphClearNodeEdges(GraphHandle graph, int index);
+
+// Adds directed edges between nodes in both directions.
+void graphConnectNodes(GraphHandle graph, int index0, int index1);
 
 // Returns the number of directed edges for a given node index.
 int graphNodeEdgeCount(GraphHandle graph, int nodeIndex);

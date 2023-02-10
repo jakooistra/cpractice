@@ -27,10 +27,12 @@ int arrayRemove(IntArrayHandle array, int index);
 bool arrayRemoveFirstValue(IntArrayHandle array, int value);
 
 int arrayValue(IntArrayHandle array, int index);
+int *arrayValues(IntArrayHandle array);
 
 int arrayCount(IntArrayHandle array);
 bool arrayEmpty(IntArrayHandle array);
 
+void arrayReserveSize(IntArrayHandle array, int size);
 int arrayAllocatedSize(IntArrayHandle array);
 
 #pragma GCC visibility pop

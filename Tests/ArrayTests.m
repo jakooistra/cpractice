@@ -75,4 +75,18 @@ static NSMutableArray<NSNumber *> *nsArray(IntArrayHandle array) {
     arrayRelease(array);
 }
 
+- (void)testReservePreservesValues {
+    IntArrayHandle array = arrayCreateVA(2, 1, 2);
+    NSArray<NSNumber *> *expected = @[@1, @2];
+    
+    XCTAssertEqual(2, arrayAllocatedSize(array));
+    XCTAssertEqualObjects(expected, nsArray(array));
+    
+    arrayReserveSize(array, 16);
+    XCTAssertEqual(16, arrayAllocatedSize(array));
+    XCTAssertEqualObjects(expected, nsArray(array));
+    
+    arrayRelease(array);
+}
+
 @end
