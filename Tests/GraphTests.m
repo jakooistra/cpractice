@@ -56,4 +56,26 @@ static NSArray<NSNumber *> *nsGraphEdges(GraphHandle graph, int nodeIndex) {
     graphRelease(graph);
 }
 
+- (void)testEdgeAdditionAndClearing {
+    GraphHandle graph = graphCreate(4);
+    NSArray<NSNumber *> *expected2 = @[@1, @2];
+    NSArray<NSNumber *> *expected4 = @[@1, @2, @1, @2];
+    
+    XCTAssertEqual(0, graphNodeEdgeCount(graph, 0));
+    XCTAssertEqual(NULL, graphNodeEdges(graph, 0));
+    
+    graphAddNodeEdges(graph, 0, 2, 1, 2);
+    XCTAssertEqualObjects(expected2, nsGraphEdges(graph, 0));
+    
+    graphClearNodeEdges(graph, 0);
+    XCTAssertEqual(0, graphNodeEdgeCount(graph, 0));
+    XCTAssertEqual(NULL, graphNodeEdges(graph, 0));
+    
+    graphAddNodeEdges(graph, 0, 2, 1, 2);
+    graphAddNodeEdges(graph, 0, 2, 1, 2);
+    XCTAssertEqualObjects(expected4, nsGraphEdges(graph, 0));
+    
+    graphRelease(graph);
+}
+
 @end
