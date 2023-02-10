@@ -8,5 +8,14 @@
 #ifndef TestUtilsC_h
 #define TestUtilsC_h
 
+#include "IntArray.h"
+
+static inline NSMutableArray<NSNumber *> *nsArray(IntArrayHandle array) {
+    NSMutableArray<NSNumber *> *output = [NSMutableArray arrayWithCapacity:arrayCount(array)];
+    for (int i = 0; i < arrayCount(array); ++i) {
+        [output addObject:@(arrayValue(array, i))];
+    }
+    return output;
+}
 
 #endif /* TestUtilsC_h */

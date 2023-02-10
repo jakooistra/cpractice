@@ -79,6 +79,10 @@ bool arrayRemoveFirstValue(IntArrayHandle array, int value) {
     return false;
 }
 
+void arrayClear(IntArrayHandle array) {
+    array->count = 0;
+}
+
 int arrayValue(IntArrayHandle array, int index) {
     return array->values[index];
 }
@@ -107,4 +111,13 @@ void arrayReserveSize(IntArrayHandle array, int newSize) {
 
 int arrayAllocatedSize(IntArrayHandle array) {
     return array->size;
+}
+
+void arrayReverse(IntArrayHandle array) {
+    for (int i = (array->count - 1) / 2; i >= 0; --i) {
+        int swapIndex = array->count - i - 1;
+        int swap = array->values[i];
+        array->values[i] = array->values[swapIndex];
+        array->values[swapIndex] = swap;
+    }
 }

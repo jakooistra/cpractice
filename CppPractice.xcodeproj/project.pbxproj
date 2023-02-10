@@ -23,6 +23,10 @@
 		DBCF56502995E44100536B7C /* IntArray.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF564E2995E44100536B7C /* IntArray.h */; };
 		DBCF56512995E44100536B7C /* IntArray.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF564F2995E44100536B7C /* IntArray.c */; };
 		DBCF56532995E83700536B7C /* ArrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56522995E83700536B7C /* ArrayTests.m */; };
+		DBCF56562996DBD600536B7C /* GraphPath.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF56542996DBD600536B7C /* GraphPath.h */; };
+		DBCF56572996DBD600536B7C /* GraphPath.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56552996DBD600536B7C /* GraphPath.c */; };
+		DBCF56592996EB1700536B7C /* GraphPathTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF56582996EB1700536B7C /* GraphPathTests.m */; };
+		DBCF565C2996EBA600536B7C /* Graphs.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF565B2996EBA600536B7C /* Graphs.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,11 @@
 		DBCF564E2995E44100536B7C /* IntArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntArray.h; sourceTree = "<group>"; };
 		DBCF564F2995E44100536B7C /* IntArray.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = IntArray.c; sourceTree = "<group>"; };
 		DBCF56522995E83700536B7C /* ArrayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayTests.m; sourceTree = "<group>"; };
+		DBCF56542996DBD600536B7C /* GraphPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphPath.h; sourceTree = "<group>"; };
+		DBCF56552996DBD600536B7C /* GraphPath.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GraphPath.c; sourceTree = "<group>"; };
+		DBCF56582996EB1700536B7C /* GraphPathTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphPathTests.m; sourceTree = "<group>"; };
+		DBCF565A2996EBA600536B7C /* Graphs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphs.h; sourceTree = "<group>"; };
+		DBCF565B2996EBA600536B7C /* Graphs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Graphs.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +112,8 @@
 				DBCF564F2995E44100536B7C /* IntArray.c */,
 				DBCF56482995239600536B7C /* Graph.h */,
 				DBCF56492995239600536B7C /* Graph.c */,
+				DBCF56542996DBD600536B7C /* GraphPath.h */,
+				DBCF56552996DBD600536B7C /* GraphPath.c */,
 				DBCF56212994444100536B7C /* TriangleSorted.hpp */,
 				DBCF56252994444100536B7C /* TriangleSorted.cpp */,
 				DBCF563B299472AF00536B7C /* TriangleSortedC.h */,
@@ -117,8 +128,11 @@
 				DBCF56522995E83700536B7C /* ArrayTests.m */,
 				DBCF5646299488E400536B7C /* HeapTests.m */,
 				DBCF564C29952CBA00536B7C /* GraphTests.m */,
+				DBCF56582996EB1700536B7C /* GraphPathTests.m */,
 				DBCF563A29944D7800536B7C /* TestUtils.hpp */,
 				DBCF56412994733700536B7C /* TestUtilsC.h */,
+				DBCF565A2996EBA600536B7C /* Graphs.h */,
+				DBCF565B2996EBA600536B7C /* Graphs.c */,
 				DBCF56322994446F00536B7C /* TriangleSortedTests.mm */,
 				DBCF563F299472D800536B7C /* TriangleSortedCTests.m */,
 			);
@@ -135,6 +149,7 @@
 				DBCF56442994866F00536B7C /* Heap.h in Headers */,
 				DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */,
 				DBCF56502995E44100536B7C /* IntArray.h in Headers */,
+				DBCF56562996DBD600536B7C /* GraphPath.h in Headers */,
 				DBCF563D299472AF00536B7C /* TriangleSortedC.h in Headers */,
 				DBCF564A2995239600536B7C /* Graph.h in Headers */,
 			);
@@ -229,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF56572996DBD600536B7C /* GraphPath.c in Sources */,
 				DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */,
 				DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */,
 				DBCF56512995E44100536B7C /* IntArray.c in Sources */,
@@ -241,9 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF565C2996EBA600536B7C /* Graphs.c in Sources */,
 				DBCF564D29952CBA00536B7C /* GraphTests.m in Sources */,
 				DBCF5640299472D800536B7C /* TriangleSortedCTests.m in Sources */,
 				DBCF5647299488E400536B7C /* HeapTests.m in Sources */,
+				DBCF56592996EB1700536B7C /* GraphPathTests.m in Sources */,
 				DBCF56532995E83700536B7C /* ArrayTests.m in Sources */,
 				DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */,
 			);

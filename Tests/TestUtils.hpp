@@ -10,7 +10,7 @@
 
 #include <optional>
 
-static NSNumber *numFromOpt(std::optional<int> const &value) {
+static inline NSNumber *numFromOpt(std::optional<int> const &value) {
     if (value.has_value()) {
         return @(value.value());
     } else {

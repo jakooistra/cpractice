@@ -8,18 +8,11 @@
 #import <XCTest/XCTest.h>
 
 #include "IntArray.h"
+#include "TestUtilsC.h"
 
 @interface ArrayTests : XCTestCase
 
 @end
-
-static NSMutableArray<NSNumber *> *nsArray(IntArrayHandle array) {
-    NSMutableArray<NSNumber *> *output = [NSMutableArray arrayWithCapacity:arrayCount(array)];
-    for (int i = 0; i < arrayCount(array); ++i) {
-        [output addObject:@(arrayValue(array, i))];
-    }
-    return output;
-}
 
 @implementation ArrayTests
 
@@ -84,6 +77,26 @@ static NSMutableArray<NSNumber *> *nsArray(IntArrayHandle array) {
     
     arrayReserveSize(array, 16);
     XCTAssertEqual(16, arrayAllocatedSize(array));
+    XCTAssertEqualObjects(expected, nsArray(array));
+    
+    arrayRelease(array);
+}
+
+- (void)testReverseEven {
+    IntArrayHandle array = arrayCreateVA(4, 1, 2, 3, 4);
+    NSArray<NSNumber *> *expected = @[@4, @3, @2, @1];
+    
+    arrayReverse(array);
+    XCTAssertEqualObjects(expected, nsArray(array));
+    
+    arrayRelease(array);
+}
+
+- (void)testReverseOdd {
+    IntArrayHandle array = arrayCreateVA(5, 1, 2, 3, 4, 5);
+    NSArray<NSNumber *> *expected = @[@5, @4, @3, @2, @1];
+    
+    arrayReverse(array);
     XCTAssertEqualObjects(expected, nsArray(array));
     
     arrayRelease(array);
