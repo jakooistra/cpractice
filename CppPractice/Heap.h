@@ -15,19 +15,28 @@
 
 typedef struct HeapImplementation *HeapHandle;
 
+struct HeapEntry {
+    int value;
+    void *context;
+};
+
 // Creates a min-heap handle.
 HeapHandle heapCreate(int size);
+
+// Creates a min-heap handle with values, but null contexts, generally for testing purposes only.
 HeapHandle heapCreateV(int *values, int count, int size);
+
+// Releases all memory associated with the heap.
 void heapRelease(HeapHandle heap);
 
 // Returns false if the value cannot be pushed.
-bool heapPush(HeapHandle heap, int value);
+bool heapPush(HeapHandle heap, int value, void *context);
 
 // Returns the top value on the heap, or INT_MIN if no value is available.
-int heapPeek(HeapHandle heap);
+struct HeapEntry heapPeek(HeapHandle heap);
 
 // Removes and returns the top value on the heap, or INT_MIN if no value is available.
-int heapPop(HeapHandle heap);
+struct HeapEntry heapPop(HeapHandle heap);
 
 // Returns the number of elements on the heap.
 int heapCount(HeapHandle heap);

@@ -16,7 +16,15 @@
 static NSArray<NSNumber *> *drainHeap(HeapHandle heap) {
     NSMutableArray<NSNumber *> *values = [NSMutableArray array];
     while (!heapEmpty(heap)) {
-        [values addObject:@(heapPop(heap))];
+        [values addObject:@(heapPop(heap).value)];
+    }
+    return values;
+}
+
+static NSArray<NSNumber *> *drainHeapContexts(HeapHandle heap) {
+    NSMutableArray<NSNumber *> *values = [NSMutableArray array];
+    while (!heapEmpty(heap)) {
+        [values addObject:@((long)heapPop(heap).context)];
     }
     return values;
 }
@@ -100,7 +108,7 @@ static NSArray<NSNumber *> *drainHeap(HeapHandle heap) {
     int values[8] = {1, 2, 10, 4, 5, 6, 7, 9};
     HeapHandle heap = heapCreateV(values, 8, 8);
     NSNumber *expected = @10;
-    XCTAssertEqualObjects(expected, @(heapPeek(heap)));
+    XCTAssertEqualObjects(expected, @(heapPeek(heap).value));
     XCTAssertEqual(8, heapCount(heap));
     heapRelease(heap);
 }
@@ -108,7 +116,7 @@ static NSArray<NSNumber *> *drainHeap(HeapHandle heap) {
 - (void)testEmptyPeek {
     HeapHandle heap = heapCreate(8);
     NSNumber *expected = @(INT_MIN);
-    XCTAssertEqualObjects(expected, @(heapPeek(heap)));
+    XCTAssertEqualObjects(expected, @(heapPeek(heap).value));
     XCTAssertEqual(0, heapCount(heap));
     heapRelease(heap);
 }
@@ -118,8 +126,19 @@ static NSArray<NSNumber *> *drainHeap(HeapHandle heap) {
     HeapHandle heap = heapCreateV(values, 8, 8);
     drainHeap(heap);
     NSNumber *expected = @(INT_MIN);
-    XCTAssertEqualObjects(expected, @(heapPop(heap)));
+    XCTAssertEqualObjects(expected, @(heapPop(heap).value));
     XCTAssertEqual(0, heapCount(heap));
+    heapRelease(heap);
+}
+
+- (void)testContextRetrieval {
+    HeapHandle heap = heapCreate(4);
+    heapPush(heap, 4, (void *)30);
+    heapPush(heap, 1, (void *)70);
+    heapPush(heap, 3, (void *)50);
+    heapPush(heap, 2, (void *)90);
+    NSArray<NSNumber *> *expected = @[@30, @50, @90, @70];
+    XCTAssertEqualObjects(expected, drainHeapContexts(heap));
     heapRelease(heap);
 }
 

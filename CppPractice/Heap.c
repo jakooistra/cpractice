@@ -11,15 +11,17 @@
 #include <stdlib.h>
 #include "Heap.h"
 
+static struct HeapEntry const INVALID_ENTRY = { .value = INT_MIN, .context = NULL };
+
 struct HeapImplementation {
     int size;
     int count;
-    int *values;
+    struct HeapEntry *values;
 };
 
 HeapHandle heapCreate(int size) {
     struct HeapImplementation *heap = malloc(sizeof(struct HeapImplementation));
-    int valuesByteSize = sizeof(int) * size;
+    int valuesByteSize = sizeof(struct HeapEntry) * size;
     heap->values = malloc(valuesByteSize);
     memset(heap->values, 0, valuesByteSize);
     heap->size = size;
@@ -30,7 +32,7 @@ HeapHandle heapCreate(int size) {
 HeapHandle heapCreateV(int *values, int count, int size) {
     HeapHandle heap = heapCreate(size);
     for (int i = 0; i < count; ++i) {
-        heapPush(heap, values[i]);
+        heapPush(heap, values[i], NULL);
     }
     return heap;
 }
@@ -43,8 +45,8 @@ void heapRelease(HeapHandle heap) {
 static void heapRectifyInsert(HeapHandle heap, int index) {
     while (index > 0) {
         int parentIndex = (index - 1) / 2;
-        if (heap->values[index] > heap->values[parentIndex]) {
-            int swap = heap->values[index];
+        if (heap->values[index].value > heap->values[parentIndex].value) {
+            struct HeapEntry swap = heap->values[index];
             heap->values[index] = heap->values[parentIndex];
             heap->values[parentIndex] = swap;
             index = parentIndex;
@@ -54,32 +56,33 @@ static void heapRectifyInsert(HeapHandle heap, int index) {
     }
 }
 
-bool heapPush(HeapHandle heap, int value) {
+bool heapPush(HeapHandle heap, int value, void *context) {
     if (heap->count >= heap->size) {
         return false;
     }
     
     int index = heap->count++;
-    heap->values[index] = value;
+    heap->values[index].value = value;
+    heap->values[index].context = context;
     heapRectifyInsert(heap, index);
     
     return true;
 }
 
-int heapPeek(HeapHandle heap) {
+struct HeapEntry heapPeek(HeapHandle heap) {
     if (heap->count <= 0) {
-        return INT_MIN;
+        return INVALID_ENTRY;
     }
     
     return heap->values[0];
 }
 
-int heapPop(HeapHandle heap) {
+struct HeapEntry heapPop(HeapHandle heap) {
     if (heap->count <= 0) {
-        return INT_MIN;
+        return INVALID_ENTRY;
     }
     
-    int value = heap->values[0];
+    struct HeapEntry entry = heap->values[0];
     int emptyIndex = 0;
     while (emptyIndex < heap->count) {
         int leftChild = emptyIndex * 2 + 1;
@@ -87,7 +90,7 @@ int heapPop(HeapHandle heap) {
         
         if (rightChild < heap->count) {
             // Choose which child to shuffle down the heap and iterate from there.
-            if (heap->values[leftChild] > heap->values[rightChild]) {
+            if (heap->values[leftChild].value > heap->values[rightChild].value) {
                 heap->values[emptyIndex] = heap->values[leftChild];
                 emptyIndex = leftChild;
             } else {
@@ -113,7 +116,7 @@ int heapPop(HeapHandle heap) {
     
     heap->count--;
     
-    return value;
+    return entry;
 }
 
 int heapCount(HeapHandle heap) {
