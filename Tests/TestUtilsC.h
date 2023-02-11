@@ -18,4 +18,12 @@ static inline NSMutableArray<NSNumber *> *nsArray(IntArrayHandle array) {
     return output;
 }
 
+static inline NSMutableArray<NSNumber *> *nsArrayV(int *values, int count) {
+    NSMutableArray<NSNumber *> *output = [NSMutableArray arrayWithCapacity:count];
+    for (int i = 0; i < count; ++i) {
+        [output addObject:@(values[i])];
+    }
+    return output;
+}
+
 #endif /* TestUtilsC_h */
