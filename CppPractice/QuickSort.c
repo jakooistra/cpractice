@@ -17,30 +17,22 @@ void quickSort(int *values, int count) {
         return;
     }
     
-    // Get a midpoint split value.
-    int const midValue = values[count / 2];
+    // Get a pivot value.
+    int const pivotValue = values[0];
     
-    int nextHighIndex = count - 1;
-    int nextLowIndex = 0;
-    while (nextLowIndex < nextHighIndex) {
-        while (values[nextLowIndex] < midValue) {
-            nextLowIndex++;
-        }
-        while (nextHighIndex > nextLowIndex && values[nextHighIndex] > midValue) {
-            nextHighIndex--;
-        }
-        
-        if (nextLowIndex < nextHighIndex) {
-            int swap = values[nextLowIndex];
-            values[nextLowIndex] = values[nextHighIndex];
-            values[nextHighIndex] = swap;
-            while (nextHighIndex > nextLowIndex && values[nextLowIndex] == midValue) {
-                nextLowIndex++;
-            }
+    // Consider every value in the array and swap and move the pivot when
+    int pivot = 0;
+    for (int i = 1; i < count; ++i) {
+        int value = values[i];
+        if (value < pivotValue) {
+            values[i] = values[pivot];
+            values[pivot++] = value;
         }
     }
+    // If the pivot is the first or last index, ensure we don't consider that element.
+    pivot = (pivot >= count) ? count - 1 : ((pivot <= 0) ? 1 : pivot);
     
     // Recursively sort the array.
-    quickSort(values, nextLowIndex);
-    quickSort(&values[nextLowIndex], count - nextLowIndex);
+    quickSort(values, pivot);
+    quickSort(&values[pivot], count - pivot);
 }
