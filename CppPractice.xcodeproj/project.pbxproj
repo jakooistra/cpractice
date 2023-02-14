@@ -30,6 +30,9 @@
 		DBCF565F2998479700536B7C /* QuickSort.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF565D2998479700536B7C /* QuickSort.h */; };
 		DBCF56602998479700536B7C /* QuickSort.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF565E2998479700536B7C /* QuickSort.c */; };
 		DBCF566229984B5200536B7C /* QuickSortTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF566129984B5200536B7C /* QuickSortTests.m */; };
+		DBCF5665299A968B00536B7C /* SortedMap.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCF5663299A968B00536B7C /* SortedMap.h */; };
+		DBCF5666299A968B00536B7C /* SortedMap.c in Sources */ = {isa = PBXBuildFile; fileRef = DBCF5664299A968B00536B7C /* SortedMap.c */; };
+		DBCF5668299AFA1A00536B7C /* SortedMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBCF5667299AFA1A00536B7C /* SortedMapTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,9 @@
 		DBCF565D2998479700536B7C /* QuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
 		DBCF565E2998479700536B7C /* QuickSort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = QuickSort.c; sourceTree = "<group>"; };
 		DBCF566129984B5200536B7C /* QuickSortTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSortTests.m; sourceTree = "<group>"; };
+		DBCF5663299A968B00536B7C /* SortedMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SortedMap.h; sourceTree = "<group>"; };
+		DBCF5664299A968B00536B7C /* SortedMap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SortedMap.c; sourceTree = "<group>"; };
+		DBCF5667299AFA1A00536B7C /* SortedMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SortedMapTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,8 @@
 				DBCF56492995239600536B7C /* Graph.c */,
 				DBCF56542996DBD600536B7C /* GraphPath.h */,
 				DBCF56552996DBD600536B7C /* GraphPath.c */,
+				DBCF5663299A968B00536B7C /* SortedMap.h */,
+				DBCF5664299A968B00536B7C /* SortedMap.c */,
 				DBCF56212994444100536B7C /* TriangleSorted.hpp */,
 				DBCF56252994444100536B7C /* TriangleSorted.cpp */,
 				DBCF563B299472AF00536B7C /* TriangleSortedC.h */,
@@ -141,6 +149,7 @@
 				DBCF56412994733700536B7C /* TestUtilsC.h */,
 				DBCF565A2996EBA600536B7C /* Graphs.h */,
 				DBCF565B2996EBA600536B7C /* Graphs.c */,
+				DBCF5667299AFA1A00536B7C /* SortedMapTests.m */,
 				DBCF56322994446F00536B7C /* TriangleSortedTests.mm */,
 				DBCF563F299472D800536B7C /* TriangleSortedCTests.m */,
 				DBCF566129984B5200536B7C /* QuickSortTests.m */,
@@ -155,6 +164,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCF5665299A968B00536B7C /* SortedMap.h in Headers */,
 				DBCF56442994866F00536B7C /* Heap.h in Headers */,
 				DBCF56222994444100536B7C /* TriangleSorted.hpp in Headers */,
 				DBCF56502995E44100536B7C /* IntArray.h in Headers */,
@@ -257,6 +267,7 @@
 				DBCF56572996DBD600536B7C /* GraphPath.c in Sources */,
 				DBCF563E299472AF00536B7C /* TriangleSortedC.c in Sources */,
 				DBCF56262994444100536B7C /* TriangleSorted.cpp in Sources */,
+				DBCF5666299A968B00536B7C /* SortedMap.c in Sources */,
 				DBCF56512995E44100536B7C /* IntArray.c in Sources */,
 				DBCF564B2995239600536B7C /* Graph.c in Sources */,
 				DBCF56452994866F00536B7C /* Heap.c in Sources */,
@@ -275,6 +286,7 @@
 				DBCF5647299488E400536B7C /* HeapTests.m in Sources */,
 				DBCF56592996EB1700536B7C /* GraphPathTests.m in Sources */,
 				DBCF56532995E83700536B7C /* ArrayTests.m in Sources */,
+				DBCF5668299AFA1A00536B7C /* SortedMapTests.m in Sources */,
 				DBCF56332994446F00536B7C /* TriangleSortedTests.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
